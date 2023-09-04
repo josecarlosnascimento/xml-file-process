@@ -1,0 +1,9 @@
+        <input matInput [value]="fileName" />       
+
+        <input type="file" id="inputXml" (change)="selectFile($event)" name="inputXml" multiple />
+        <button mat-flat-button color="primary" [disabled]="!files" (click)="upload()">
+            ENVIAR
+        </button>
+        <div *ngIf="loading">
+            <mat-spinner></mat-spinner>
+        </div>
