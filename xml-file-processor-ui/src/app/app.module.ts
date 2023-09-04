@@ -15,8 +15,9 @@ import { MatListModule } from '@angular/material/list';
 
 
 import { HttpClientModule } from '@angular/common/http';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatProgressBarModule,
     MatListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    CommonModule
   ],
   exports: [
     MatCardModule,
@@ -42,7 +44,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatInputModule,
     MatFormFieldModule,
     MatProgressBarModule,
-    MatListModule
+    MatListModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

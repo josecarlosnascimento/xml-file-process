@@ -19,6 +19,7 @@ public class FileResource {
 
 	@PostMapping("/upload")
 	public ResponseEntity<Void> process(@RequestPart MultipartFile file) throws Exception {
+		Thread.sleep(5000);
 		agenteService.processarArquivo(file);
 		return null;
 	}

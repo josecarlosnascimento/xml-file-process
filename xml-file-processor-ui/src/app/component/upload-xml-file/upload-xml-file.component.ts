@@ -14,8 +14,6 @@ export class UploadXmlFileComponent {
   files: File[] = [];
   currentFile!: File;
   fileName: String[] = [];
-  progressUpload = 0;
-  message = '';
   loading: boolean = false;
 
   constructor(private uploadXmlFileService: UploadXmlFileService) { }
@@ -37,29 +35,16 @@ export class UploadXmlFileComponent {
   }
 
   upload(): void {
-    this.progressUpload = 0;
-    this.message = "";
-    this.loading = true;
     if (this.files) {
-
+      this.loading = true;
       this.files.forEach(file => {
         (this.uploadXmlFileService.upload(file)).subscribe(
           (event: any) => {
-            if (event.type === HttpEventType.UploadProgress) {
-              this.progressUpload = Math.round(100 * event.loaded / event.total);
-            } else if (event instanceof HttpResponse) {
-              this.message = event.body.message;
-            }
+            this.loading = false;
           },
           (err: any) => {
             console.log(err);
-            this.progressUpload = 0;
-  
-            if (err.error && err.error.message) {
-              this.message = err.error.message;
-            } else {
-              this.message = 'Could not upload the file!';
-            }
+            this.loading = false;
           });
       })
     }
