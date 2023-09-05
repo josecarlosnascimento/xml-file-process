@@ -7,5 +7,6 @@ import com.file.processor.model.Agente;
 
 @Repository
 public interface AgenteRepository extends JpaRepository<Agente, Long>{
+	
 
 }
